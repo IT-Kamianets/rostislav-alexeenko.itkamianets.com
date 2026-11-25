@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, follow">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#F6F3ED">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#141311">
+
+  <title>404 — Сторінку не знайдено / Page not found</title>
+  <meta name="description" content="Сторінку не знайдено. Перейдіть на головну сторінку резюме Ростислава Алєксєєнка / Page not found. Return to Rostyslav Alieksieienko’s CV.">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Literata:ital,opsz,wght@0,7..72,500;0,7..72,600&display=swap">
+
+  <style>
+    @layer reset, tokens, base, layout, components;
+
+    @layer reset {
+      html, body, header, main, footer, div, h1, p, a, span, nav {
+        box-sizing: border-box;
+      }
+
+      body, h1, p {
+        margin: 0;
+      }
+    }
+
+    @layer tokens {
+      :root {
+        color-scheme: light dark;
+
+        --c-bg-light: #F6F3ED;
+        --c-bg-dark: #141311;
+        --c-surface-light: #ECE7DD;
+        --c-surface-dark: #1D1B18;
+        --c-ink-light: #181715;
+        --c-ink-dark: #F1EDE6;
+        --c-muted-light: #544F48;
+        --c-muted-dark: #ABA499;
+        --c-accent-light: #A8331B;
+        --c-accent-dark: #E87A61;
+        --c-accent-ink-light: #FFFFFF;
+        --c-accent-ink-dark: #141311;
+        --c-border-light: #D4CEC2;
+        --c-border-dark: #2F2B26;
+
+        --bg: var(--c-bg-light);
+        --surface: var(--c-surface-light);
+        --ink: var(--c-ink-light);
+        --muted: var(--c-muted-light);
+        --accent: var(--c-accent-light);
+        --accent-ink: var(--c-accent-ink-light);
+        --border: var(--c-border-light);
+
+        --font-serif: "Literata", Georgia, "Noto Serif", serif;
+        --font-sans: "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+        --container: 52rem;
+        --gutter: clamp(1.25rem, 4vw, 3rem);
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: var(--c-bg-dark);
+          --surface: var(--c-surface-dark);
+          --ink: var(--c-ink-dark);
+          --muted: var(--c-muted-dark);
+          --accent: var(--c-accent-dark);
+          --accent-ink: var(--c-accent-ink-dark);
+          --border: var(--c-border-dark);
+        }
+      }
+
+      @supports (color: light-dark(white, black)) {
+        :root {
+          --bg: light-dark(var(--c-bg-light), var(--c-bg-dark));
+          --surface: light-dark(var(--c-surface-light), var(--c-surface-dark));
+          --ink: light-dark(var(--c-ink-light), var(--c-ink-dark));
+          --muted: light-dark(var(--c-muted-light), var(--c-muted-dark));
+          --accent: light-dark(var(--c-accent-light), var(--c-accent-dark));
+          --accent-ink: light-dark(var(--c-accent-ink-light), var(--c-accent-ink-dark));
+          --border: light-dark(var(--c-border-light), var(--c-border-dark));
+        }
+      }
+    }
+
+    @layer base {
+      html {
+        font-family: var(--font-sans);
+        background-color: var(--bg);
+        color: var(--ink);
+        -webkit-text-size-adjust: 100%;
+      }
+
+      body {
+        min-block-size: 100vh;
+        min-block-size: 100dvb;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        line-height: 1.6;
+        border-block-start: 3px solid var(--accent);
+      }
+
+      h1 {
+        font-family: var(--font-serif);
+        font-weight: 500;
+        text-wrap: balance;
+      }
+
+      p {
+        text-wrap: pretty;
+      }
+
+      :where(a:any-link):focus-visible {
+        outline: 3px solid var(--accent);
+        outline-offset: 3px;
+        border-radius: 2px;
+      }
+    }
+
+    @layer layout {
+      .wrap {
+        max-inline-size: var(--container);
+        inline-size: 100%;
+        margin-inline: auto;
+        padding-inline: var(--gutter);
+      }
+
+      .site-header {
+        border-block-end: 1px solid var(--border);
+        padding-block: 1rem;
+      }
+
+      .error-main {
+        display: grid;
+        align-content: center;
+        padding-block: clamp(3rem, 8vw, 5.5rem);
+      }
+
+      .site-footer {
+        border-block-start: 1px solid var(--border);
+        padding-block: 1.25rem;
+        font-size: 0.875rem;
+        color: var(--muted);
+      }
+    }
+
+    @layer components {
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.65rem;
+        text-decoration: none;
+        color: var(--ink);
+        font-weight: 600;
+        font-size: 0.9375rem;
+      }
+
+      .brand-mark {
+        inline-size: 0.625rem;
+        block-size: 0.625rem;
+        background-color: var(--accent);
+      }
+
+      .code-label {
+        font-size: 0.8125rem;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-block-end: 0.75rem;
+      }
+
+      .error-title {
+        font-size: clamp(2.1rem, 1.4rem + 2.4vw, 3.25rem);
+        line-height: 1.12;
+        letter-spacing: -0.02em;
+        margin-block-end: 1.5rem;
+      }
+
+      .bilingual-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+        gap: 1.5rem 2.5rem;
+        border-block: 1px solid var(--border);
+        padding-block: 1.5rem;
+        margin-block-end: 2rem;
+      }
+
+      .lang-block {
+        display: grid;
+        gap: 0.4rem;
+      }
+
+      .lang-tag {
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.85rem;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-block-size: 2.75rem;
+        padding: 0.6rem 1.25rem;
+        font-size: 0.9375rem;
+        font-weight: 500;
+        text-decoration: none;
+        border: 1px solid var(--ink);
+        transition: background-color 0.16s ease, color 0.16s ease, border-color 0.16s ease;
+      }
+
+      .btn-primary {
+        background-color: var(--ink);
+        color: var(--bg);
+      }
+
+      .btn-primary:hover {
+        background-color: var(--accent);
+        border-color: var(--accent);
+        color: var(--accent-ink);
+      }
+
+      .btn-secondary {
+        background-color: transparent;
+        color: var(--ink);
+      }
+
+      .btn-secondary:hover {
+        background-color: var(--surface);
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+    }
+
+    @media (forced-colors: active) {
+      .site-header,
+      .site-footer,
+      .bilingual-grid,
+      .btn {
+        border-color: CanvasText;
+      }
+
+      .brand-mark {
+        background-color: Highlight;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a href="/" class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>Ростислав Алєксєєнко · <span lang="en">Rostyslav Alieksieienko</span></span>
+      </a>
+    </div>
+  </header>
+
+  <main class="error-main">
+    <div class="wrap">
+      <p class="code-label">Помилка 404 · <span lang="en">Error 404</span></p>
+      <h1 class="error-title">Сторінку не знайдено<br><span lang="en">Page not found</span></h1>
+
+      <div class="bilingual-grid">
+        <div class="lang-block">
+          <p class="lang-tag">Українська</p>
+          <p>За цією адресою немає сторінки. Перейдіть на головну сторінку резюме.</p>
+        </div>
+        <div class="lang-block" lang="en">
+          <p class="lang-tag">English</p>
+          <p>There is no page at this address. Return to the main CV page.</p>
+        </div>
+      </div>
+
+      <nav class="actions" aria-label="Повернення на резюме / Return to CV">
+        <a href="/" class="btn btn-primary" hreflang="uk">На головну (UA)</a>
+        <a href="/en/" class="btn btn-secondary" lang="en" hreflang="en">Open English CV (EN)</a>
+      </nav>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>rostislav-alexeenko.itkamianets.com</p>
+    </div>
+  </footer>
+</body>
+</html>
